@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170222134918) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "aphorisms", force: :cascade do |t|
     t.integer  "author_id"
     t.text     "aphorism"
