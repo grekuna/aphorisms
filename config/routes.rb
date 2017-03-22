@@ -4,6 +4,8 @@ root to: 'aphorisms#index'
 
 get 'aphorisms', to: 'aphorisms#index'
 
+get 'start', to: 'aphorisms#start'
+
 get 'calvin', to: 'calvin#index'
 
 end
