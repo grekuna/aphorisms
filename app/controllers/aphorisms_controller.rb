@@ -14,9 +14,10 @@ class AphorismsController < ApplicationController
     # origin = Nokogiri::HTML(origin_body)
     # @image_url = origin.css('._1XCzC').attr('src').value
 
-    html_body = Curl.get("https://www.reddit.com/user/calvinbot").body_str
+    html_body = Curl.get("http://calvinandhobbes-daily.tumblr.com/").body_str
     site = Nokogiri::HTML(html_body)
-    @image_url= site.css('.outbound').first.attr('href')
+    @image_url= site.css('img').first.attr('src')
+ 
 
     @author = Author.find(rand(0..Author.all.count-1))
     @aphorism = @author.aphorisms.find(rand(@author.aphorisms.first.id..@author.aphorisms.last.id)).aphorism
