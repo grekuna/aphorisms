@@ -1,6 +1,6 @@
-<div style="width: 900px; margin: 100px auto; box-shadow: 2px 2px 6px  grey"><%= image_tag(@image_url) %></div>
+<div style="width: 700px; margin: 100px auto; box-shadow: 2px 2px 6px  grey"><%= image_tag(@image_url, width:"100%") %></div>
 
-<div style="width: 900px; margin: 100px auto; border-top-style: solid; border-bottom-style: solid; border-width: 2px; border-color:#2a2a2a;">
-  <h2 style="color:#2a2a2a; line-height: 32px"><%= @aphorism %></h2>
-  <h2 style="text-align:right; color:#2a2a2a"> - <%= @author.first_name %> <%= @author.last_name %></h2>
+<div style="width: 700px; margin: 100px auto; border-top-style: solid; border-bottom-style: solid; border-width: 2px; border-color:#2a2a2a;">
+  <h3 style="color:#2a2a2a; line-height: 32px"><%= @aphorism %></h3>
+  <h4 style="text-align:right; color:#2a2a2a"> - <%= @author.first_name %> <%= @author.last_name %></h4>
 </div>
