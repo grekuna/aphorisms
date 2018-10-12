@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'curb'
 gem 'nokogiri'
+gem 'simple-rss', '~> 1.3', '>= 1.3.3'
 
 
 
