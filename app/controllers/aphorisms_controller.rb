@@ -20,7 +20,9 @@ class AphorismsController < ApplicationController
     # site = Nokogiri::HTML(html_body)
     # @image_url= site.css('img').first.attr('src')
     
-    @image_url= "https://78.media.tumblr.com/4181c5ebb3bd17fb2379cfa75617805b/tumblr_mf5l1mXBnI1r4ejnio1_640.gif"
+    rss = SimpleRSS.parse open('https://www.comicsrss.com/rss/calvinandhobbes.rss')
+    @description_string = rss.items.first.description
+    @image_url = @description_string.split(" ")[2][5..-2] 
     @author = Author.find(rand(0..Author.all.count-1))
     @aphorism = @author.aphorisms.find(rand(@author.aphorisms.first.id..@author.aphorisms.last.id)).aphorism
   end

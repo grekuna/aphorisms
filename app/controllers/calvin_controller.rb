@@ -11,6 +11,7 @@ class CalvinController < ApplicationController
     rss = SimpleRSS.parse open('https://www.comicsrss.com/rss/calvinandhobbes.rss')
     @description_string = rss.items.first.description
     @image_url = @description_string.split(" ")[2][5..-2] 
+    
 
 
 
