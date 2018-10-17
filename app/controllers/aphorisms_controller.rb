@@ -19,12 +19,20 @@ class AphorismsController < ApplicationController
     # html_body = Curl.get("http://calvinandhobbes-daily.tumblr.com/").body_str
     # site = Nokogiri::HTML(html_body)
     # @image_url= site.css('img').first.attr('src')
+    @author = Author.find(rand(0..Author.all.count-1))
+    @aphorism = @author.aphorisms.find(rand(@author.aphorisms.first.id..@author.aphorisms.last.id)).aphorism
+    
     
     rss = SimpleRSS.parse open('https://www.comicsrss.com/rss/calvinandhobbes.rss')
     @description_string = rss.items.first.description
     @image_url = @description_string.split(" ")[2][5..-2] 
-    @author = Author.find(rand(0..Author.all.count-1))
-    @aphorism = @author.aphorisms.find(rand(@author.aphorisms.first.id..@author.aphorisms.last.id)).aphorism
+
+    rss = SimpleRSS.parse open('https://www.comicsrss.com/rss/dilbert-classics.rss')
+    @description_string = rss.items.first.description
+    @image_url2 = @description_string.split(" ")[2][5..-2] 
+    
+
+
   end
 
 end
